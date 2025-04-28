@@ -3,9 +3,7 @@ foreach ($header as $row) {
   $no_trans = $row->no_transaksi;
   $tgl = $row->tgl_transaksi;
   $total = $row->grand_total;
-  $cus_id = $row->pelanggan_id;
-  $lain = $row->lainnya;
-  $nama_cus = $row->name;
+  $pembeli = $row->pembeli;
   $bayar = $row->uang_bayar;
   $kembali = $row->uang_kembali;
 }
@@ -58,8 +56,11 @@ foreach ($header as $row) {
 
 <body>
   <!--  <h3>KSU Asy-Syathibiyyah</h3>-->
-  <img src="<?= base_url('assets/image/nota.png') ?>" width="163" height="56">
-  <p style="margin-top: 0px"><br> Jl. Kb. Dua Ratus, RT.4/RW.6 <br> Kec. Kalideres, Jakarta Barat
+  <!-- <img src="<?= base_url('assets/image/nota.png') ?>" width="163" height="56"> -->
+   <h1><strong>Your Logo</strong></h1>
+  <!-- <p style="margin-top: 0px"><br> Jl. Kb. Dua Ratus, RT.4/RW.6 <br> Kec. Kalideres, Jakarta Barat
+  </p> -->
+  <p style="margin-top: 0px"><br> <strong>Store Address</strong>
   </p>
   <center>
     <table width="85%" style="border-top: 1px dashed black; border-bottom: 1px dashed black; border-collapse: collapse;">
@@ -77,13 +78,7 @@ foreach ($header as $row) {
           <td width="12%">Pel</td>
           <td width="1%" align="center">:</td>
           <td colspan="2">
-            <?php
-            if ($cus_id == '117') {
-              echo $lain;
-            } else {
-              echo $nama_cus;
-            }
-            ?>
+            <?= $pembeli;?>
           </td>
           <!-- <td width="12%">Kasir</td>
           <td width="3%">:</td>
@@ -136,7 +131,7 @@ foreach ($header as $row) {
     </table>
     <br>
     Terimakasih Sudah Berbelanja di<br>
-	 KSU Asy-Syathibiyyah
+	 <strong>Your Store</strong>
 
 </center>
 </body>

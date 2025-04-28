@@ -114,15 +114,19 @@
                         <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required>
                     </div> -->
                     <div class="form-group">
+                        <label for="pembeli">Nama Pembeli</label>
+                        <input type="text" id="pembeli" name="pembeli" class="form-control" value="-">
+                    </div>
+                    <!-- <div class="form-group">
                         <label for="anggota">Pilih Anggota</label>
                         <select id="anggota" name="anggota" class="form-control" style="width: 100%;">
                             <option value="" disabled selected>Pilih Anggota</option>
                         </select>
-                    </div>
-                    <div id="formTambahan" style="display: none;">
+                    </div> -->
+                    <!-- <div id="formTambahan" style="display: none;">
                         <label for="extraField">Pelanggan Lainnya</label>
                         <input type="text" id="extraField" name="extraField" class="form-control" placeholder="Pelanggan Lainnya">
-                    </div>
+                    </div> -->
                     <label for="metode_bayar">Metode Pembayaran</label>
                     <select id="metode_bayar" name="metode_bayar" class="form-control">
                         <option value="1">Cash</option>

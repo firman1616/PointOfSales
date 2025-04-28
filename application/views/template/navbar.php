@@ -41,11 +41,11 @@
             <?php } ?> -->
 
             <?php if ($akses == 1 || $akses == 3 || $akses == 2) { ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('Peserta/iuran') ?>">
                         <i class="fas fa-fw fa-users"></i>
                         <span>Iuran Anggota</span></a>
-                </li>
+                </li> -->
             
             <?php } ?>
 
@@ -66,7 +66,7 @@
                                 <a class="collapse-item" href="<?= site_url('Laporan/lap_barang') ?>">Laporan Barang</a>
                             <?php } ?>
                             <?php if ($akses == 1 || $akses == 3) { ?>
-                                <a class="collapse-item" href="<?= site_url('Laporan/lap_iuran') ?>">Laporan Iuran</a>
+                                <!-- <a class="collapse-item" href="<?= site_url('Laporan/lap_iuran') ?>">Laporan Iuran</a> -->
                             <?php } ?>
                             <?php if ($akses == 1 || $akses == 3) { ?>
                                 <a class="collapse-item" href="<?= site_url('Transaksi/trans_tempo') ?>">Laporan Tempo</a>
@@ -82,7 +82,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#trans_lain"
                         aria-expanded="true" aria-controls="trans_lain">
                         <i class="fas fa-fw fa-wallet"></i>
-                        <span>Keuangan Koperasi</span>
+                        <span>Keuangan</span>
                     </a>
                     <div id="trans_lain" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">

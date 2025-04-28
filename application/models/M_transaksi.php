@@ -104,17 +104,14 @@ class M_transaksi extends CI_Model
       tt.no_transaksi,
       tt.grand_total,
       tt.tgl_transaksi,
-      tt.pelanggan_id,
-      tt.lainnya,
+      tt.pembeli ,
       tt.kasir_id,
       tt.metode_bayar,
-      ta.name,
       tt.uang_bayar,
       tt.uang_kembali,
       ts.nama_user as kasir
     from
       tbl_transaksi tt
-    left join tbl_anggota ta  on ta.id = tt.pelanggan_id
     left join tbl_user ts on ts.id = tt.kasir_id
     where tt.id = '$id'");
   }

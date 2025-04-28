@@ -26,10 +26,10 @@ class M_dashboard extends CI_Model
     AND uang_bayar <> 0; ")->row();
   }
 
-  function count_anggota()
-  {
-    return $this->db->query("SELECT id from tbl_anggota")->num_rows();
-  }
+  // function count_anggota()
+  // {
+  //   return $this->db->query("SELECT id from tbl_anggota")->num_rows();
+  // }
 
   function count_tempo()
   {

@@ -144,10 +144,11 @@ class Transaksi extends CI_Controller
         $total_bayar = $this->input->post('total_setelah_diskon');
         $uang_dibayarkan = $this->input->post('uang_dibayarkan');
         $uang_kembali = $uang_dibayarkan - $total_bayar;
-        $anggota_id = $this->input->post('anggota_id');
-        $extra_value = $this->input->post('extraField');
+        // $anggota_id = $this->input->post('anggota_id');
+        // $extra_value = $this->input->post('extraField');
         $metode_bayar = $this->input->post('metode_bayar');
         $id_user = $this->input->post('id_user');
+        $pembeli = $this->input->post('pembeli');
 
         // Format periode berdasarkan tgl_transaksi (format MMYY)
         $periode = date('my', strtotime($tanggal));
@@ -160,10 +161,11 @@ class Transaksi extends CI_Controller
             'uang_bayar' => $uang_dibayarkan,
             'uang_kembali' => $uang_kembali,
             'tgl_transaksi' => $tanggal,
-            'pelanggan_id' => $anggota_id,
-            'lainnya' => ($anggota_id == 117) ? $extra_value : null,
+            // 'pelanggan_id' => $anggota_id,
+            // 'lainnya' => ($anggota_id == 117) ? $extra_value : null,
             'metode_bayar' => $metode_bayar,
             'kasir_id' => $id_user,
+            'pembeli' => $pembeli
         ];
 
         // log_message('error', 'Data Transaksi: ' . print_r($data_transaksi, true));
@@ -214,7 +216,7 @@ class Transaksi extends CI_Controller
             // Ambil saldo awal dari tbl_keuangan untuk periode sebelumnya
             $this->db->select('nominal');
             $this->db->from('tbl_keuangan');
-            $this->db->where('kategori_keuangan', '11');
+            $this->db->where('kategori_keuangan', '1');
             $this->db->where('periode', $periode_sebelumnya);
             $query_saldo = $this->db->get();
 
@@ -224,7 +226,7 @@ class Transaksi extends CI_Controller
             $total_nominal = $saldo_awal + $total_transaksi;
 
             // Update hanya field nominal di tbl_keuangan berdasarkan periode saat ini
-            $this->db->where('kategori_keuangan', '11');
+            $this->db->where('kategori_keuangan', '1');
             $this->db->where('periode', $periode);
             $this->db->update('tbl_keuangan', ['nominal' => $total_nominal]);
         }
@@ -358,7 +360,7 @@ class Transaksi extends CI_Controller
         // Ambil saldo awal dari tbl_keuangan untuk periode sebelumnya
         $this->db->select('nominal');
         $this->db->from('tbl_keuangan');
-        $this->db->where('kategori_keuangan', '11');
+        $this->db->where('kategori_keuangan', '1');
         $this->db->where('periode', $periode_sebelumnya);
         $query_saldo = $this->db->get();
 
@@ -387,7 +389,7 @@ class Transaksi extends CI_Controller
         if ($update_transaksi) {
             // Jika metode_bayar = 1, update tbl_keuangan dengan total nominal baru
             $this->db->set('nominal', $total_nominal);
-            $this->db->where('kategori_keuangan', '11');
+            $this->db->where('kategori_keuangan', '1');
             $this->db->where('periode', $periode);
             $update_keuangan = $this->db->update('tbl_keuangan');
 

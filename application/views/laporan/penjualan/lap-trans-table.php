@@ -16,15 +16,7 @@
             <tr>
                 <td><?= $x++; ?></td>
                 <td><?= $row->no_transaksi ?></td>
-                <td>
-                    <?php
-                    if ($row->pelanggan_id == '117') {
-                        echo $row->lainnya;
-                    } else {
-                        echo $row->cust;
-                    }
-                    ?>
-                </td>
+                <td><?= $row->pembeli ?></td>
                 <td><?= 'Rp. ' . number_format($row->grand_total) ?></td>
                 <td><?= date('d-m-Y', strtotime($row->tgl_transaksi)) ?></td>
                 <td>

@@ -3,8 +3,8 @@
 $host = "localhost";  // Ganti sesuai konfigurasi database
 $user = "root";       // Ganti sesuai konfigurasi database
 $pass = "";           // Ganti sesuai konfigurasi database
-$dbname = "db_koperasi"; // Ganti dengan nama database
-$port = '5001';
+$dbname = "db_pos"; // Ganti dengan nama database
+$port = '3306';
 
 $conn = new mysqli($host, $user, $pass, $dbname, $port);
 

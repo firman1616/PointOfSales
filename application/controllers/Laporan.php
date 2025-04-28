@@ -78,12 +78,12 @@ class Laporan extends CI_Controller
         $row = 2;
         $x = 1;
         foreach ($headerData as $d) {
-            $customer = ($d->pelanggan_id == '117') ? $d->lainnya : $d->cust;
+            // $customer = ($d->pelanggan_id == '117') ? $d->lainnya : $d->cust;
             $date = date('d-m-Y', strtotime($d->tgl_transaksi));
 
             $sheet->setCellValue('A' . $row, $x++);
             $sheet->setCellValue('B' . $row, $d->no_transaksi);
-            $sheet->setCellValue('C' . $row, $customer);
+            $sheet->setCellValue('C' . $row, $d->pembeli);
             $sheet->setCellValueExplicit('D' . $row, $d->grand_total, \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC);
             $sheet->setCellValue('E' . $row, $date);
 

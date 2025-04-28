@@ -120,52 +120,52 @@ $(document).ready(function () {
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }
 
-    function loadAnggota() {
-        $.ajax({
-            url: BASE_URL + "Transaksi/get_anggota",
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                console.log("Data diterima:", data); // Debugging
+    // function loadAnggota() {
+    //     $.ajax({
+    //         url: BASE_URL + "Transaksi/get_anggota",
+    //         type: "GET",
+    //         dataType: "json",
+    //         success: function (data) {
+    //             console.log("Data diterima:", data); // Debugging
 
-                $("#anggota").empty().append('<option value="">Pilih Anggota</option>');
+    //             $("#anggota").empty().append('<option value="">Pilih Anggota</option>');
 
-                $.each(data, function (index, item) {
-                    $("#anggota").append(`<option value="${item.id}">${item.no_agt} - ${item.name}</option>`);
-                });
+    //             $.each(data, function (index, item) {
+    //                 $("#anggota").append(`<option value="${item.id}">${item.no_agt} - ${item.name}</option>`);
+    //             });
 
-                // Inisialisasi Select2 setelah data dimuat
-                $("#anggota").select2({
-                    dropdownParent: $("#modalPembayaran"),
-                    width: "100%",
-                    placeholder: "Pilih Anggota",
-                    allowClear: true
-                });
+    //             // Inisialisasi Select2 setelah data dimuat
+    //             $("#anggota").select2({
+    //                 dropdownParent: $("#modalPembayaran"),
+    //                 width: "100%",
+    //                 placeholder: "Pilih Anggota",
+    //                 allowClear: true
+    //             });
 
-                // Event listener untuk menampilkan form tambahan jika ID = 117
-                $("#anggota").on("change", function () {
-                    var selectedID = $(this).val();
+    //             // Event listener untuk menampilkan form tambahan jika ID = 117
+    //             $("#anggota").on("change", function () {
+    //                 var selectedID = $(this).val();
 
-                    if (selectedID === "117") {
-                        $("#formTambahan").show();  // Tampilkan form tambahan
-                        // $("#formTambahan").prop("required", true);
-                    } else {
-                        $("#formTambahan").hide();  // Sembunyikan jika bukan ID 117
-                        // $("#formTambahan").prop("required", false); // Hapus kewajiban input
-                    }
-                });
-            },
-            error: function (xhr, status, error) {
-                console.error("Error:", error);
-            }
-        });
-    }
+    //                 if (selectedID === "117") {
+    //                     $("#formTambahan").show();  // Tampilkan form tambahan
+    //                     // $("#formTambahan").prop("required", true);
+    //                 } else {
+    //                     $("#formTambahan").hide();  // Sembunyikan jika bukan ID 117
+    //                     // $("#formTambahan").prop("required", false); // Hapus kewajiban input
+    //                 }
+    //             });
+    //         },
+    //         error: function (xhr, status, error) {
+    //             console.error("Error:", error);
+    //         }
+    //     });
+    // }
 
     // **Mengambil total harga saat modal pembayaran ditampilkan**
     $("#modalPembayaran").on("shown.bs.modal", function () {
         var totalHarga = $(".total-harga").text().replace(/[^\d]/g, ""); // Ambil angka tanpa karakter non-digit
         totalHarga = parseFloat(totalHarga) || 0; // Konversi ke angka
-        loadAnggota();
+        // loadAnggota();
         // Format ulang dalam bentuk rupiah yang benar
         $("#total_bayar").text("Rp. " + totalHarga.toLocaleString("id-ID"));
         $("#total_bayar").data("total", totalHarga);
@@ -192,27 +192,28 @@ $(document).ready(function () {
         var uangDibayarkan = parseFloat($("#uang_dibayarkan").val());
         var diskon = parseFloat($("#diskon").val()) || 0;
         var totalHarga = parseFloat($("#total_bayar").data("total")) || 0;
-        var anggotaID = $("#anggota").val();
-        var extraFieldValue = $("#extraField").val();
+        // var anggotaID = $("#anggota").val();
+        // var extraFieldValue = $("#extraField").val();
         var metodeBayar = $("#metode_bayar").val();
         var id_user = $("#id_user").val();
+        var pembeli = $("#pembeli").val();
 
         // if (!tanggal || !kd_trans || uangDibayarkan <= 0) {
         //     alert("Silakan isi semua data pembayaran!");
         //     return;
         // }
 
-        if (!anggotaID) {
-            alert("Silakan pilih anggota sebelum melakukan pembayaran!");
-            $("#anggota").focus();
-            return;
-        }
+        // if (!anggotaID) {
+        //     alert("Silakan pilih anggota sebelum melakukan pembayaran!");
+        //     $("#anggota").focus();
+        //     return;
+        // }
 
-        if (anggotaID === "117" && extraFieldValue === "") {
-            alert("Silakan isi 'Pelanggan Lainnya' sebelum melanjutkan pembayaran!");
-            $("#extraField").focus();
-            return;
-        } 
+        // if (anggotaID === "117" && extraFieldValue === "") {
+        //     alert("Silakan isi 'Pelanggan Lainnya' sebelum melanjutkan pembayaran!");
+        //     $("#extraField").focus();
+        //     return;
+        // } 
 
         if (!tanggal || !kd_trans) {
             alert("Silakan isi semua data pembayaran!");
@@ -260,11 +261,12 @@ $(document).ready(function () {
                 uang_dibayarkan: uangDibayarkan,
                 diskon: diskon,
                 total_setelah_diskon: totalSetelahDiskon,
-                anggota_id: anggotaID,
-                extraField: extraFieldValue, // Perbaikan nama agar sesuai dengan Controller
+                // anggota_id: anggotaID,
+                // extraField: extraFieldValue, // Perbaikan nama agar sesuai dengan Controller
                 metode_bayar: metodeBayar,
                 barang: barang,
-                id_user: id_user
+                id_user: id_user,
+                pembeli: pembeli
             },
             dataType: "json",
             success: function (response) {
@@ -290,23 +292,24 @@ $(document).ready(function () {
         var uangDibayarkan = parseFloat($("#uang_dibayarkan").val());
         var diskon = parseFloat($("#diskon").val()) || 0;
         var totalHarga = parseFloat($("#total_bayar").data("total")) || 0;
-        var anggotaID = $("#anggota").val();
+        // var anggotaID = $("#anggota").val();
         var id_akhir = $("#id_akhir").val(); // Ambil ID transaksi dari form
         var id_user = $("#id_user").val();
-        var extraFieldValue = $("#extraField").val();
+        // var extraFieldValue = $("#extraField").val();
         var metodeBayar = $("#metode_bayar").val();
+        var pembeli = $("#pembeli").val();
 
-        if (!anggotaID) {
-            alert("Silakan pilih anggota sebelum melakukan pembayaran!");
-            $("#anggota").focus();
-            return;
-        }
+        // if (!anggotaID) {
+        //     alert("Silakan pilih anggota sebelum melakukan pembayaran!");
+        //     $("#anggota").focus();
+        //     return;
+        // }
 
-        if (anggotaID === "117" && extraFieldValue === "") {
-            alert("Silakan isi 'Pelanggan Lainnya' sebelum melanjutkan pembayaran!");
-            $("#extraField").focus();
-            return;
-        } 
+        // if (anggotaID === "117" && extraFieldValue === "") {
+        //     alert("Silakan isi 'Pelanggan Lainnya' sebelum melanjutkan pembayaran!");
+        //     $("#extraField").focus();
+        //     return;
+        // } 
 
         if (!tanggal || !kd_trans || uangDibayarkan <= 0) {
             alert("Silakan isi semua data pembayaran!");
@@ -339,11 +342,12 @@ $(document).ready(function () {
                 uang_dibayarkan: uangDibayarkan,
                 diskon: diskon,
                 total_setelah_diskon: totalSetelahDiskon,
-                anggota_id: anggotaID,
+                // anggota_id: anggotaID,
                 barang: barang,
                 id_user: id_user,
-                extraField: extraFieldValue,
+                // extraField: extraFieldValue,
                 metode_bayar: metodeBayar,
+                pembeli: pembeli
             },
             dataType: "json",
             success: function (response) {

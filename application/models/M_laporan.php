@@ -12,15 +12,11 @@ class M_laporan extends CI_Model
         tt.id,
         tt.no_transaksi,
         tt.grand_total,
-        tt.pelanggan_id,
+        tt.pembeli,
         tt.tgl_transaksi,
-        tt.lainnya,
-        ta.name AS cust,
         tt.metode_bayar
     FROM
         tbl_transaksi tt
-    LEFT JOIN 
-        tbl_anggota ta ON ta.id = tt.pelanggan_id
     left join tbl_dtl_trans tdt on tdt.head_trans = tt.id
     left join tbl_barang tb on tb.kode_barang  = tdt.kode_barang 
     WHERE
@@ -32,9 +28,8 @@ class M_laporan extends CI_Model
         tt.no_transaksi,
         tt.grand_total,
         tt.tgl_transaksi,
-        tt.lainnya,
-        ta.name
-    order by date(tt.tgl_transaksi) desc");
+        tt.lainnya
+    order by tt.no_transaksi desc");
     return $query;
   }
 
@@ -43,15 +38,12 @@ class M_laporan extends CI_Model
     $query = $this->db->query("SELECT
         tt.id,
         tt.no_transaksi,
-        tt.pelanggan_id,
+        tt.pembeli,
         tt.grand_total,
         tt.tgl_transaksi,
-        tt.lainnya,
-        ta.name AS cust
+        tt.lainnya
     FROM
         tbl_transaksi tt
-    LEFT JOIN 
-        tbl_anggota ta ON ta.id = tt.pelanggan_id
     WHERE
         DATE(tt.tgl_transaksi) >= '$date_start'
         AND DATE(tt.tgl_transaksi) <= '$date_end'
