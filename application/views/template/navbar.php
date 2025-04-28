@@ -12,7 +12,7 @@
                     <!-- <img src="<?= base_url('assets/image/ksua.png') ?>" alt="Logo" style="width: 40px; height: 40px;"> -->
                      <h1><strong>Your Logo</strong></h1>
                 </div>
-                <div class="sidebar-brand-text mx-3">SYATHIBI </div>
+                <div class="sidebar-brand-text mx-3">Your Store </div>
             </a>
 
             <!-- Divider -->
