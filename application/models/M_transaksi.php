@@ -139,13 +139,11 @@ class M_transaksi extends CI_Model
       tt.uang_bayar,
       tt.uang_kembali,
       tt.tgl_transaksi,
-      tt.pelanggan_id,
+      tt.pembeli,
       tt.metode_bayar,
-      ta.name,
       tt.lainnya 
     from
       tbl_transaksi tt
-    left join tbl_anggota ta on ta.id = tt.pelanggan_id 
     where
       tt.metode_bayar = '2'");
   }

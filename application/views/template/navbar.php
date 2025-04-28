@@ -10,7 +10,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('Dashboard') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <img src="<?= base_url('assets/image/ksua.png') ?>" alt="Logo" style="width: 40px; height: 40px;"> -->
-                     <h1><strong>Your Logo</strong></h1>
+                    <h1><strong>Your Logo</strong></h1>
                 </div>
                 <div class="sidebar-brand-text mx-3">Your Store </div>
             </a>
@@ -24,7 +24,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <?php if ($akses == 1 || $akses == 3) { ?>
+            <?php if ($akses == 1 || $akses == 2) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('Transaksi') ?>">
                         <i class="fas fa-fw fa-shopping-cart"></i>
@@ -47,7 +47,7 @@
                         <i class="fas fa-fw fa-users"></i>
                         <span>Iuran Anggota</span></a>
                 </li> -->
-            
+
             <?php } ?>
 
 
@@ -63,20 +63,20 @@
                             <?php if ($akses == 1 || $akses == 3 || $akses == 2) { ?>
                                 <a class="collapse-item" href="<?= site_url('Laporan') ?>">Laporan Penjualan</a>
                             <?php } ?>
-                            <?php if ($akses == 1 || $akses == 3) { ?>
+                            <?php if ($akses == 1 || $akses == 2) { ?>
                                 <a class="collapse-item" href="<?= site_url('Laporan/lap_barang') ?>">Laporan Barang</a>
                             <?php } ?>
-                            <?php if ($akses == 1 || $akses == 3) { ?>
+                            <?php if ($akses == 1 || $akses == 2) { ?>
                                 <!-- <a class="collapse-item" href="<?= site_url('Laporan/lap_iuran') ?>">Laporan Iuran</a> -->
                             <?php } ?>
-                            <?php if ($akses == 1 || $akses == 3) { ?>
+                            <?php if ($akses == 1 || $akses == 2) { ?>
                                 <a class="collapse-item" href="<?= site_url('Transaksi/trans_tempo') ?>">Laporan Tempo</a>
                             <?php } ?>
                         </div>
                     </div>
                 </li>
-                
-                <?php } ?>
+
+            <?php } ?>
 
             <?php if ($akses == 1 || $akses == 2) { ?>
                 <li class="nav-item">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </li>
-                
+
             <?php } ?>
 
             <?php if ($akses == 1 || $akses == 2) { ?>
@@ -109,7 +109,9 @@
                             <a class="collapse-item" href="<?= site_url('Barang') ?>">Barang</a>
                             <a class="collapse-item" href="<?= site_url('UOM') ?>">UoM (Satuan)</a>
                             <!-- <a class="collapse-item" href="<?= site_url('Kategori') ?>">Kategori</a> -->
-                            <a class="collapse-item" href="<?= site_url('User') ?>">User</a>
+                            <?php if ($akses == 1) { ?>
+                                <a class="collapse-item" href="<?= site_url('User') ?>">User</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </li>

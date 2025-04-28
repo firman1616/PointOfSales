@@ -7,7 +7,7 @@ class Transaksi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('status') == FALSE || $this->session->userdata('level') != 1 && $this->session->userdata('level') != 3) {
+        if ($this->session->userdata('status') == FALSE || $this->session->userdata('level') != 1 && $this->session->userdata('level') != 2) {
             redirect(base_url("Login"));
         }
         // $this->load->library('Pdf');
