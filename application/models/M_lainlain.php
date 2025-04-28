@@ -8,7 +8,7 @@ class M_lainlain extends CI_Model
 
   function get_kateg_pemasukan()
   {
-    return $this->db->query("SELECT * FROM tbl_kateg_trans WHERE kategori_id = '1' AND id in ('1','2')");
+    return $this->db->query("SELECT * FROM tbl_kateg_trans WHERE kategori_id = '1' AND id not in ('1')");
   }
 
   public function insert_pemasukan($data)
@@ -49,7 +49,7 @@ class M_lainlain extends CI_Model
       tbl_keuangan tk 
     left join tbl_kateg_trans tkt on tkt.id = tk.kategori_keuangan 
     left join tbl_kategori tk2 on tk2.id = tkt.kategori_id 
-    where tk2.id = '1' and tk.periode = DATE_FORMAT(CURDATE(), '%m%y') and tk.kategori_keuangan not in ('3','12')");
+    where tk2.id = '1' and tk.periode = DATE_FORMAT(CURDATE(), '%m%y')");
   }
 
   function get_data_pengeluaran()  {

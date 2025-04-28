@@ -1,8 +1,9 @@
 $(document).ready(function () {
+    setTanggalHariIni();
     tablePemasukanLain();
     $('#id').val('');
     $('#pemasukanForm').trigger("reset");
-    
+    setTanggalHariIni();
     
     $('#save-data').click(function (e) { 
         e.preventDefault();
@@ -24,6 +25,7 @@ $(document).ready(function () {
             datatype: 'json',
             success: function(data) {
                 $('#pemasukanForm').trigger("reset");
+                setTanggalHariIni();
                 $('#id').val(''); // Reset ID setelah submit
                 alert(message);
                 tablePemasukanLain();
@@ -104,3 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 });
+
+function setTanggalHariIni() {
+    $('#tgl_pemasukan').val(new Date().toISOString().split('T')[0]);
+}

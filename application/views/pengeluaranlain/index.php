@@ -21,6 +21,10 @@
                 <div class="card-body">
                     <form action="" id="pengeluaran" name="pengeluaran" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id">
+                    <div class="form-group">
+                            <label for="date">Tanggal</label>
+                            <input type="date" class="form-control" id="tgl_pengeluaran" name="tgl_pengeluaran" required>
+                        </div>
                         <div class="form-group">
                             <label for="namaTransaksi">Kategori</label>
                             <select name="kategori" id="kategori" class="form-control" required>

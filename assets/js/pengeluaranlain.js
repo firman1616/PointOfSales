@@ -1,7 +1,9 @@
 $(document).ready(function () {
+    setTanggalHariIni();
     tablePengeluaranLain();
     $('#id').val('');
     $('#pengeluaran').trigger("reset");
+    setTanggalHariIni();
 
     $('#save-data').click(function (e) {
         e.preventDefault();
@@ -34,10 +36,12 @@ $(document).ready(function () {
                     
                     // Reset Form
                     $('#pengeluaran').trigger("reset");
+                    setTanggalHariIni();
                     $('#id').val('');
                     $('#kategori').val('').trigger('change');
                     $('#saldoTersedia').text('Rp. 0,-');
                     tablePengeluaranLain(); // Reload table
+                    setTanggalHariIni();
                 } else {
                     alert(response.message);
                 }
@@ -118,6 +122,10 @@ $(document).ready(function () {
     });
 
 });
+
+function setTanggalHariIni() {
+    $('#tgl_pengeluaran').val(new Date().toISOString().split('T')[0]);
+}
 
 function tablePengeluaranLain() {
     $.ajax({

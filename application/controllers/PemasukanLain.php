@@ -38,7 +38,7 @@ class PemasukanLain extends CI_Controller
     public function store()
     {
         // Ambil tanggal sekarang dalam format Y-m-d
-        $tanggal_pemasukan = date('Y-m-d');
+        $tanggal_pemasukan = $this->input->post('tgl_pemasukan');
         $nominal = str_replace('.', '', $this->input->post('nominal'));
 
         $data = [
