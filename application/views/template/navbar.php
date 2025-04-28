@@ -9,7 +9,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('Dashboard') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="<?= base_url('assets/image/ksua.png') ?>" alt="Logo" style="width: 40px; height: 40px;">
+                    <!-- <img src="<?= base_url('assets/image/ksua.png') ?>" alt="Logo" style="width: 40px; height: 40px;"> -->
+                     <h1><strong>Your Logo</strong></h1>
                 </div>
                 <div class="sidebar-brand-text mx-3">SYATHIBI </div>
             </a>
