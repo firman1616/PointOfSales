@@ -41,14 +41,14 @@
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <label class="form-label">Jenis Barang</label>
                         <select name="jenis_barang" id="jenis_barang" class="form-control" required>
                             <option value="" disabled selected>Pilih Satu</option>
                             <option value="1">Raw Material</option>
                             <option value="2">Siap Jual</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- <div class="row">
