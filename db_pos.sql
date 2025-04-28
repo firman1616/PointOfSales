@@ -11,7 +11,7 @@
  Target Server Version : 100432 (10.4.32-MariaDB)
  File Encoding         : 65001
 
- Date: 28/04/2025 15:48:36
+ Date: 28/04/2025 16:22:54
 */
 
 SET NAMES utf8mb4;
@@ -75,7 +75,7 @@ INSERT INTO `tbl_barang` VALUES (15, 'BRG-2502-0015', 'TERIGU LENCANA MERAH', 1,
 INSERT INTO `tbl_barang` VALUES (16, 'BRG-2502-0016', 'TROPICAL @ 6Krat', 1, 215000, 220000, 9, 'KRAT', 5000, '2025-02-27 09:06:03', '2025-02-27 09:06:03', 0, 0, 1, NULL);
 INSERT INTO `tbl_barang` VALUES (17, 'BRG-2502-0017', 'TROPICAL @2L', 1, 40000, 45000, 8, 'L', 5000, '2025-02-27 09:06:27', '2025-02-27 09:06:27', 0, 0, 1, NULL);
 INSERT INTO `tbl_barang` VALUES (18, 'BRG-2502-0018', 'BERAS SYATHIBI @ 5 KG', 1, 74000, 77000, 8, 'Kg', 3000, '2025-02-27 09:12:50', '2025-02-27 09:12:50', 0, 0, 1, NULL);
-INSERT INTO `tbl_barang` VALUES (19, 'BRG-2504-0019', 'TIssu Bundle (3 pcs)', 1, 0, 18000, 6, 'BDL', 0, '2025-04-28 10:55:26', '2025-04-28 10:55:26', NULL, NULL, 1, 2);
+INSERT INTO `tbl_barang` VALUES (19, 'BRG-2504-0019', 'TIssu Bundle (3 pcs)', 1, 0, 18000, 5, 'BDL', 0, '2025-04-28 10:55:26', '2025-04-28 10:55:26', NULL, NULL, 1, 2);
 
 -- ----------------------------
 -- Table structure for tbl_dtl_trans
@@ -88,32 +88,12 @@ CREATE TABLE `tbl_dtl_trans`  (
   `qty` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `total_harga` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_dtl_trans
 -- ----------------------------
-INSERT INTO `tbl_dtl_trans` VALUES (1, 1, 'BRG-2502-0004', '1', '105000');
-INSERT INTO `tbl_dtl_trans` VALUES (2, 1, 'BRG-2502-0017', '1', '45000');
-INSERT INTO `tbl_dtl_trans` VALUES (3, 2, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (4, 3, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (5, 4, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (6, 5, 'BRG-2502-0004', '1', '105000');
-INSERT INTO `tbl_dtl_trans` VALUES (7, 6, 'BRG-2502-0006', '1', '3500');
-INSERT INTO `tbl_dtl_trans` VALUES (8, 7, 'BRG-2502-0006', '1', '3500');
-INSERT INTO `tbl_dtl_trans` VALUES (9, 9, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (10, 10, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (11, 11, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (12, 12, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (13, 13, 'BRG-2502-0003', '1', '20000');
-INSERT INTO `tbl_dtl_trans` VALUES (14, 13, 'BRG-2502-0001', '1', '700000');
-INSERT INTO `tbl_dtl_trans` VALUES (15, 13, 'BRG-2502-0013', '2', '12000');
-INSERT INTO `tbl_dtl_trans` VALUES (16, 13, 'BRG-2502-0016', '1', '220000');
-INSERT INTO `tbl_dtl_trans` VALUES (17, 14, 'BRG-2502-0018', '1', '77000');
-INSERT INTO `tbl_dtl_trans` VALUES (18, 15, 'BRG-2504-0019', '1', '18000');
-INSERT INTO `tbl_dtl_trans` VALUES (19, 16, 'BRG-2504-0019', '1', '18000');
-INSERT INTO `tbl_dtl_trans` VALUES (20, 17, 'BRG-2504-0019', '1', '18000');
-INSERT INTO `tbl_dtl_trans` VALUES (21, 18, 'BRG-2504-0019', '1', '18000');
+INSERT INTO `tbl_dtl_trans` VALUES (1, 1, 'BRG-2504-0019', '1', '18000');
 
 -- ----------------------------
 -- Table structure for tbl_history_barang
@@ -148,23 +128,19 @@ CREATE TABLE `tbl_kateg_trans`  (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `kategori_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_kateg_trans
 -- ----------------------------
-INSERT INTO `tbl_kateg_trans` VALUES (1, NULL, 'Dana Hibah', 1);
-INSERT INTO `tbl_kateg_trans` VALUES (2, NULL, 'Dana Soal', 1);
-INSERT INTO `tbl_kateg_trans` VALUES (3, NULL, 'Dana Iuran Anggota', 1);
-INSERT INTO `tbl_kateg_trans` VALUES (4, NULL, 'Model Unit Usaha', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (5, NULL, 'Kegiatan Koperasi', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (6, NULL, 'Kegiatan Sosial', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (7, NULL, 'Kegiatan Penunjang Koperasi', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (8, NULL, 'Jasa Pengurus Koperasi', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (9, NULL, 'Pembagian SHU anggota', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (10, NULL, 'Pengadaan Inventaris', 2);
-INSERT INTO `tbl_kateg_trans` VALUES (11, NULL, 'Dana Hasil Penjualan', 1);
-INSERT INTO `tbl_kateg_trans` VALUES (12, NULL, 'Dana Simpanan Anggota', 1);
+INSERT INTO `tbl_kateg_trans` VALUES (1, NULL, 'Dana Penjualan', 1);
+INSERT INTO `tbl_kateg_trans` VALUES (2, NULL, 'Dana Modal', 1);
+INSERT INTO `tbl_kateg_trans` VALUES (3, NULL, 'Dana Investasi', 1);
+INSERT INTO `tbl_kateg_trans` VALUES (4, NULL, 'Dana Penerimaan Pinjaman', 1);
+INSERT INTO `tbl_kateg_trans` VALUES (5, NULL, 'Biaya Operasional', 2);
+INSERT INTO `tbl_kateg_trans` VALUES (6, NULL, 'Biaya Pembelian Barang', 2);
+INSERT INTO `tbl_kateg_trans` VALUES (7, NULL, 'Biaya Pembelian Aset', 2);
+INSERT INTO `tbl_kateg_trans` VALUES (8, NULL, 'Biaya Pembayaran Hutan', 2);
 
 -- ----------------------------
 -- Table structure for tbl_kategori
@@ -194,23 +170,19 @@ CREATE TABLE `tbl_keuangan`  (
   `nominal` decimal(10, 0) NULL DEFAULT NULL,
   `periode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_keuangan
 -- ----------------------------
-INSERT INTO `tbl_keuangan` VALUES (1, 1, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (3, 3, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (4, 4, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (5, 5, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (6, 6, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (7, 7, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (8, 8, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (9, 9, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (10, 10, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (11, 11, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (12, 12, 0, '0325');
-INSERT INTO `tbl_keuangan` VALUES (13, 2, 0, '0325');
+INSERT INTO `tbl_keuangan` VALUES (1, 1, 18000, '0425');
+INSERT INTO `tbl_keuangan` VALUES (2, 2, 0, '0425');
+INSERT INTO `tbl_keuangan` VALUES (3, 3, 0, '0425');
+INSERT INTO `tbl_keuangan` VALUES (4, 4, 0, '0425');
+INSERT INTO `tbl_keuangan` VALUES (5, 5, 0, '0425');
+INSERT INTO `tbl_keuangan` VALUES (6, 6, 0, '0425');
+INSERT INTO `tbl_keuangan` VALUES (7, 7, 0, '0425');
+INSERT INTO `tbl_keuangan` VALUES (8, 8, 0, '0425');
 
 -- ----------------------------
 -- Table structure for tbl_level
@@ -285,27 +257,12 @@ CREATE TABLE `tbl_transaksi`  (
   `metode_bayar` int NULL DEFAULT NULL,
   `kasir_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_transaksi
 -- ----------------------------
-INSERT INTO `tbl_transaksi` VALUES (1, 'TRX-2503-0001', '0', '150000', '150000', '0', '2025-03-09 00:10:00', NULL, 5, NULL, 1, NULL);
-INSERT INTO `tbl_transaksi` VALUES (2, 'TRX-2503-0002', '0', '20000', '20000', '0', '2025-03-13 16:52:00', NULL, 117, NULL, NULL, 3);
-INSERT INTO `tbl_transaksi` VALUES (3, 'TRX-2503-0003', '0', '20000', '20000', '0', '2025-03-13 17:01:00', NULL, 117, NULL, 1, NULL);
-INSERT INTO `tbl_transaksi` VALUES (4, 'TRX-2503-0004', '0', '20000', '20000', '0', '2025-03-13 17:02:00', NULL, 117, NULL, 1, NULL);
-INSERT INTO `tbl_transaksi` VALUES (5, 'TRX-2503-0005', '0', '105000', '110000', '5000', '2025-03-13 17:10:00', NULL, 117, 'man', 1, NULL);
-INSERT INTO `tbl_transaksi` VALUES (6, 'TRX-2503-0006', '0', '3500', '5000', '1500', '2025-03-13 17:14:00', NULL, 117, 'min', 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (9, 'TRX-2503-0007', '0', '20000', '20000', '0', '2025-03-13 17:15:00', NULL, 117, 'mun', 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (10, 'TRX-2503-0010', '0', '20000', '20000', '0', '2025-03-13 17:17:00', NULL, 117, NULL, NULL, 3);
-INSERT INTO `tbl_transaksi` VALUES (11, 'TRX-2503-0011', '0', '20000', '20000', '0', '2025-03-13 17:19:00', NULL, 117, '20', 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (12, 'TRX-2503-0012', '0', '20000', '20000', '0', '2025-03-13 17:19:00', NULL, 117, 'abc', 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (13, 'TRX-2503-0013', '0', '964000', '970000', '6000', '2025-03-14 11:21:00', NULL, 4, NULL, 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (14, 'TRX-2503-0014', '0', '77000', '80000', '3000', '2025-03-14 11:29:39', NULL, 3, NULL, 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (15, 'TRX-2504-0015', '0', '18000', '20000', '2000', '2025-04-28 15:14:00', NULL, 2, NULL, 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (16, 'TRX-2504-0016', '0', '18000', '20000', '2000', '2025-04-28 15:17:00', NULL, 3, NULL, 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (17, 'TRX-2504-0017', '0', '18000', '20000', '2000', '2025-04-28 15:20:00', '1234324', 4, NULL, 1, 3);
-INSERT INTO `tbl_transaksi` VALUES (18, 'TRX-2504-0018', '0', '18000', '20000', '2000', '2025-04-28 15:26:00', 'qweqwrwr', NULL, NULL, 1, 3);
+INSERT INTO `tbl_transaksi` VALUES (1, 'TRX-2504-0001', '0', '18000', '20000', '2000', '2025-04-28 15:59:00', 'AIda', NULL, NULL, 1, 3);
 
 -- ----------------------------
 -- Table structure for tbl_uom
